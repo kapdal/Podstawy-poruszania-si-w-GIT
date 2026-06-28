@@ -11,3 +11,12 @@ if [[ "$1" == "--logs" && -z "$2" ]]; then
         echo "Data: $(date)" >> "$filename"
     done
 fi
+
+if [[ "$1" == "--logs" && "$2" =~ ^[0-9]+$ ]]; then
+    for i in $(seq 1 "$2"); do
+        filename="log$i.txt"
+        echo "Nazwa pliku: $filename" > "$filename"
+        echo "Skrypt: $0" >> "$filename"
+        echo "Data: $(date)" >> "$filename"
+    done
+fi
