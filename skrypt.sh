@@ -26,3 +26,10 @@ if [[ "$1" == "--help" ]]; then
     echo "--logs [N]    tworzy pliki logów (domyślnie 100 lub N)"
     echo "--help        wyświetla tę pomoc"
 fi
+
+if [[ "$1" == "--init" ]]; then
+    git clone https://github.com/TWOJ_LOGIN/TWOJE_REPO.git .
+    export PATH="$PATH:$(pwd)"
+    echo "Repozytorium sklonowane i PATH ustawione."
+    exit 0
+fi
