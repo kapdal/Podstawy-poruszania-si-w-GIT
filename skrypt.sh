@@ -20,3 +20,9 @@ if [[ "$1" == "--logs" && "$2" =~ ^[0-9]+$ ]]; then
         echo "Data: $(date)" >> "$filename"
     done
 fi
+
+if [[ "$1" == "--help" ]]; then
+    echo "--date        wyświetla dzisiejszą datę"
+    echo "--logs [N]    tworzy pliki logów (domyślnie 100 lub N)"
+    echo "--help        wyświetla tę pomoc"
+fi
