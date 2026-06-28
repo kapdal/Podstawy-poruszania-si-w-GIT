@@ -22,9 +22,12 @@ if [[ "$1" == "--logs" ||"$1" == "-l" ]] && [[ "$2" =~ ^[0-9]+$ ]]; then
 fi
 
 if [[ "$1" == "--help" ]]; then
-    echo "--date        wyświetla dzisiejszą datę"
-    echo "--logs [N]    tworzy pliki logów (domyślnie 100 lub N)"
-    echo "--help        wyświetla tę pomoc"
+    echo "--date, -d            wyświetla dzisiejszą datę"
+    echo "--logs [N], -l [N]    tworzy pliki logów (domyślnie 100 lub N)"
+    echo "--help, -h            wyświetla tę pomoc"
+    echo "--init                klonuje repo i ustawia PATH"
+    echo "--error, -e [N]       tworzy katalogi errorx/errorx.txt"
+    exit 0
 fi
 
 if [[ "$1" == "--init" ]]; then
