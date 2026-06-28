@@ -1,9 +1,9 @@
 #!/bin/bash
-if [[ "$1" == "--date" ]]; then
+if [[ "$1" == "--date" || "$1" == "-d"]]; then
 	date
 if
 
-if [[ "$1" == "--logs" && -z "$2" ]]; then
+if [[ "$1" == "--logs" || "$1" == "-l" ]] && [[ -z "$2" ]]; then
     for i in {1..100}; do
         filename="log$i.txt"
         echo "Nazwa pliku: $filename" > "$filename"
@@ -12,7 +12,7 @@ if [[ "$1" == "--logs" && -z "$2" ]]; then
     done
 fi
 
-if [[ "$1" == "--logs" && "$2" =~ ^[0-9]+$ ]]; then
+if [[ "$1" == "--logs" ||"$1" == "-l" ]] && [[ "$2" =~ ^[0-9]+$ ]]; then
     for i in $(seq 1 "$2"); do
         filename="log$i.txt"
         echo "Nazwa pliku: $filename" > "$filename"
