@@ -33,3 +33,25 @@ if [[ "$1" == "--init" ]]; then
     echo "Repozytorium sklonowane i PATH ustawione."
     exit 0
 fi
+
+if [[ "$1" == "--error" || "$1" == "-e" ]] && [[ -z "$2" ]]; then
+    for i in {1..100}; do
+        mkdir -p "error$i"
+        filename="error$i/error$i.txt"
+        echo "Plik: $filename" > "$filename"
+        echo "Skrypt: $0" >> "$filename"
+        echo "Data: $(date)" >> "$filename"
+    done
+    exit 0
+fi
+
+if [[ "$1" == "--error" || "$1" == "-e" ]] && [[ "$2" =~ ^[0-9]+$ ]]; then
+    for i in $(seq 1 "$2"); do
+        mkdir -p "error$i"
+        filename="error$i/error$i.txt"
+        echo "Plik: $filename" > "$filename"
+        echo "Skrypt: $0" >> "$filename"
+        echo "Data: $(date)" >> "$filename"
+    done
+    exit 0
+fi
